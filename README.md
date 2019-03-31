@@ -54,12 +54,14 @@ $ set FLASK_ENV=development
 The API server provides 2 endpoints to access the search api :
 - **POST** : /imdb-api-post
 - **GET** : /imdb-api-get
+
 Both endpoints return the same result.
 
 A complete guide to using the api endpoints can be found at http://127.0.0.1:500/ .
 
 ### API Request Parameters
 **REQUIRED Parameters**
+
 Atleast one of the following parameters are needed to perform a succesful search.
 
 | Parameter | Description |
@@ -120,9 +122,9 @@ $.ajax({
 ### API Response 
 The Response is a list of dictionaries where each dictionary contains details about one title. The list is ordered in the descending order of Popularity of the titles.
 
-**Success Response** :
+**SUCCESS Response** :
 
-Code: 200<br>
+- Code: 200<br>
 Response :
 ```json
 [
@@ -143,16 +145,14 @@ Response :
 ...
 ...]
 ```
-**Error Response** :
+**ERROR Response** :
 
-Code: 400<br>
+- Code: 400<br>
 Response :
 ```json
 {"error":"Title/Keyword/Plot is required"}
 ```
-**OR**
-
-Code: 500<br>
+- Code: 500<br>
 Response :
 ```json
 {"error":"SERVER ERROR"}
