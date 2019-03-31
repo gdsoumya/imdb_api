@@ -1,0 +1,171 @@
+.header{
+	display: flex;
+	justify-content: center;
+}
+.header p{
+    text-align: right;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 1.4vw;
+    margin-top: -1vw;
+}
+h1{
+	text-align: center;
+	font-family: fantasy;
+	font-size: 7vw;
+	margin: 4vw 7vw 1vw 7vw;
+	color: black;
+}
+h1 span{
+	background-color: #fccb1a;
+	padding: 0vw 1vw;
+	border: 0.3vw solid;
+	display: inline-block;
+	border-radius: 1vw;
+}
+nav{
+	font-family: 'Bree Serif', serif;
+	margin-top: 0.5vw;
+	line-height: 1.8vw;
+}
+nav a{
+	display: block;
+	text-decoration: none;
+	background: #fccb1a;
+	margin: 3vw 2vw;
+	padding: 0.9vw 1.5vw;
+	border-radius: 1vw;
+	font-size: 2vw;
+	border: 0.2vw solid black;
+	color: black;
+	font-family: fantasy;
+	font-weight: 100;
+}
+
+nav a:hover{
+	-webkit-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	transform: scale(1.1);
+	-webkit-box-shadow: 0px 5px #000000a8;
+	box-shadow: 0px 5px #000000a8;
+}	
+#myForm{
+	float: right;
+	margin: 1vw 14%;
+	display: inline-block;
+}
+#myForm2{
+	float: left;
+	margin: 1vw 14%;
+	display: inline-block;
+}
+.query{
+	border: .2vw solid #F5C518;
+	padding: 0.4vw;
+	border-radius: 1vw;
+}
+.sb{
+	background: no-repeat;
+	border: .2vw solid black;
+	border-radius: 0.6vw;
+	padding: 0.3vw;
+	font-size: 1.2vw;
+	font-weight: bold;
+	background-color: #F5C518;
+}
+#resp{
+	margin: 12vw 20vw 2vw 20vw;
+}
+.movie{
+	margin: 2vw 0vw;
+	height: 14vw;
+	display: flex;
+	justify-content: space-between;
+	font-family: monospace;
+	padding: 1vw;
+	background-color: #f6f6f5;
+}
+.details{	
+	width: 80%;
+	font-size: 110%;
+}
+.movie img{
+    height: 88%;
+    width: 17%;
+}
+.movie p{
+}
+.loader{
+	display: block;
+	margin: 2vw auto;
+	width: fit-content;
+}
+.doc{
+	width: 80%;
+	margin: 0 auto;
+}
+.info{
+	text-align: center;
+	width: 70%;
+	margin: 1vw auto;
+	font-size: 1.5vw !important;
+	line-height: 2vw;
+}
+.doc p{
+	font-size: 1.7vw;
+	font-family: sans-serif;
+	font-weight: bold;
+}
+.doc h3{
+	font-size: 2.5vw;
+	font-family: sans-serif;
+	font-weight: 100;
+	font-weight: bold;
+	text-align: center;
+}
+.attr{
+	display: flex;
+	justify-content: space-around;
+	padding: 1vw 2vw;
+	background-color: #8080800a;
+	margin: 1vw;
+}
+.name{
+	font-family: monospace;
+	font-size: 1.3vw;
+	font-weight: bold;
+}
+.description{
+	width: 65%;
+	font-family: arial;
+	line-height: 1.7vw;
+	font-size: 1.2vw;
+}
+.attr ul{
+	display: flex;
+	flex-wrap: wrap;
+}
+.attr li{
+	margin: 0 1vw;
+}
+.respara{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.respara .attr{
+	width: 30vw;
+}
+.def{
+	font-size: 1.3vw !important;	
+	font-weight: normal !important;
+	font-family: sans-serif;
+}
+.code{
+	background-color: black;
+	color: white;
+	padding: 1.3vw;
+	border-radius: 0.4vw;
+	margin: 2vw auto;
+	width: 93%;
+}

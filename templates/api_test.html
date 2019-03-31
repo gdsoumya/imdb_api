@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IMDb_API</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../static/style.css">
+</head>
+<body>
+	<div class="header">
+	<div>
+	<a href="./" style="text-decoration: none"><h1><span>IMDb</span>_API TEST</h1></a>
+	<p>~Basic Search Query</p>
+	</div></div>
+	<div style="margin-top: 3vw;">
+		<form id='myForm'>
+			<input class="query" type="text" name="title" placeholder="GET Method Search">
+			<input class="sb" type="Submit" name="sumbit">
+		</form>
+		<form id='myForm2'>
+			<input class="query" type="text" name="title" placeholder="POST Method Search">
+			<input class="sb" type="Submit" name="sumbit">
+		</form>
+	</div>
+	<div id="resp"></div>
+	<script type="text/javascript">
+		$('#myForm').submit(function(e){
+			var dv = document.getElementById("resp");
+			dv.innerHTML="<img class='loader' src='./static/ajax-loader.gif'>"
+		    e.preventDefault();
+		    txt="";
+			var x = document.getElementById("myForm");
+			for (var i = 0; i < x.length-1; i++) {
+  				txt += '&'+x.elements[i].getAttribute("name")+'='+x.elements[i].value
+  			}
+		    $.ajax({
+		        url:'http://127.0.0.1:5000/imdb-api-get',
+		        type:'get',
+		        data:txt,
+		        success:function(myJson){
+		            dv.innerHTML=""
+				  for(var i = 0, size = myJson.length; i < size ; i++){
+				    var item = myJson[i];	  
+					html = '<div class="movie"><img src="'+item['poster']+'" width=100>'+'<div class="details"><p><strong>Name</strong>: '+item['name']+'</p>'+'<p><strong>Plot</strong>: '+item['plot']+'</p>'+'<p><strong>Rating</strong>: '+item['rating']+'</p></div></div>';
+					dv.innerHTML = dv.innerHTML+html;
+				  }
+		        }
+		    });
+		});
+		$('#myForm2').submit(function(e){
+			var dv = document.getElementById("resp");
+			dv.innerHTML="<img class='loader' src='./static/ajax-loader.gif'>"
+		    e.preventDefault();
+			var jd={};
+			var x = document.getElementById("myForm2");
+			for (var i = 0; i < x.length-1; i++) {
+  				jd[x.elements[i].getAttribute("name")]=x.elements[i].value;
+  			}
+		    $.ajax({
+		        url:'http://127.0.0.1:5000/imdb-api-post',
+		        type:'post',
+		        contentType:'application/json',
+		        data:JSON.stringify(jd),
+		        success:function(myJson){
+		            dv.innerHTML=""
+				  for(var i = 0, size = myJson.length; i < size ; i++){
+				    var item = myJson[i];	  
+					html = '<div class="movie"><img src="'+item['poster']+'" width=100>'+'<div class="details"><p><strong>Name</strong>: '+item['name']+'</p>'+'<p><strong>Plot</strong>: '+item['plot']+'</p>'+'<p><strong>Rating</strong>: '+item['rating']+'</p></div></div>';
+					dv.innerHTML = dv.innerHTML+html;
+				  }
+		        }
+		    });
+		});
+		
+	</script>
+</body>
+</html>

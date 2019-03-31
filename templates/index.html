@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IMDb_Api</title>
+	<link rel="stylesheet" type="text/css" href="../static/style.css">
+</head>
+<body>
+	<div class="header">
+		<div style="cursor: context-menu;">
+			<h1><span>IMDb</span>_API</h1>
+			<p>Created By ~ <a href='https://www.github.com/gdsoumya' target='_blank' style="color:red; text-decoration: none;">GDSoumya</a></p>
+		</div>
+		<nav>
+			<div><a target='_blank' href="https://www.github.com/gdsoumya/imdb_api">Github Repo</a></div><div style="width: 18vw;text-align: center;"><a href="{{url_for('api_test')}}">Test API</a></div>
+		</nav>
+	</div>
+	<div class="doc">
+		<p class="info">*This API is an unofficial API for IMDb, use with caution.<br>For reporting bugs or issues visit <a href="https://github.com/gdsoumya/imdb_api/issues">ISSUES</a>*</p>
+		<h3>Searching Titles using IMDb_API</h3>
+		<p>API Request Parameters: </p>
+		<p class="def"><STRONG>REQUIRED :</STRONG><br><br>
+		Atleast one of the following parameters are needed to perform a succesful search.</p>
+		<div class="attr">
+			<div class="name">title : </div>
+			<div class="description">Title/Query to Search</div>
+		</div>
+		<div class="attr">
+			<div class="name">keywords : </div>
+			<div class="description">Instead of searching for specific Title, you can search for keywords that are related to the title you want to search.<br>eg. 'detective' or 'jail,escape'  </div>
+		</div>
+		<div class="attr">
+			<div class="name">plot : </div>
+			<div class="description"><strong>*This is a tricky and experimental feature, avoid using it.*</strong><br>Instead of searching for specific Title, you can give the plot of the title you want to search.</div>
+		</div>
+		<p class="def"><br><strong>OPTIONAL : </strong><br></p>
+		<div class="attr">
+			<div class="name">title_type : </div>
+			<div class="description">
+				Types of title to search, possible values :
+				<ul>
+					<li>feature</li>
+					<li>tv_movie</li>
+					<li>tv_series</li>
+					<li>tv_episode</li>
+					<li>tv_special</li>
+					<li>tv_miniseries</li>
+					<li>documentary</li>
+					<li>video_game</li>
+					<li>short</li>
+					<li>video</li>
+					<li>tv_short</li>
+				</ul>
+				eg. 'feature' or 'feature,tv_series,video' etc.
+			</div>
+		</div>
+		<div class="attr">
+			<div class="name">release_date : </div>
+			<div class="description">Two comma separated dates(YYYY-MM-DD) indicating a time range to search for title released in that range of time.
+			<br>eg. '1999-02-20,2018-11-29'  or  ' ,2000-01-31'  or  '1999-10-11, ' etc.</div>
+		</div>
+		<div class="attr">
+			<div class="name">user_rating : </div>
+			<div class="description">Two comma separated integers(0-10) indicating the range of IMDb rating from which you want to search for the titles.<br>
+			eg. '1,9' or '5.6,9.9' etc.</div>
+		</div>
+		<div class="attr">
+			<div class="name">genres : </div>
+			<div class="description">Genre to search titles from, possible values:
+				<ul>
+					<li>action</li><li>adventure</li><li>animation</li><li>biography</li><li>comedy</li><li>crime</li><li>documentary</li><li>drama</li><li>family</li><li>fantasy</li><li>film-noir</li><li>game-show</li><li>history</li><li>horror</li><li>music</li><li>musical</li><li>mystery</li><li>news</li><li>reality-tv</li><li>romance</li><li>sci-fi</li><li>sport</li><li>talk-show</li><li>thriller</li><li>war</li><li>western</li>
+				</ul>
+				eg. 'action,adventure,animation' etc.
+			</div>
+		</div>
+		<div class="attr">
+			<div class="name">colors : </div>
+			<div class="description">Color Info to search titles from,possible values:
+				<ul>
+					<li>color</li><li>black_and_white</li><li>colorized</li><li>aces</li>
+				</ul>
+				eg. 'color,colorized,aces' etc.
+			</div>
+		</div>
+		<div class="attr">
+			<div class="name">adult : </div>
+			<div class="description">Option to whether include or exclude adult titles, possible values
+				<ul>
+					<li>exclude</li><li>include</li>
+				</ul>
+			by default it is set to exclude adult content.
+			</div>
+		</div>
+		<div class="attr">
+			<div class="name">count : </div>
+			<div class="description">Maximum number of results to fetch.<br>eg. '50','100' etc.<br>Default max count is 50</div>
+		</div>
+	<h3>API CALL</h3>
+	<div class="def">The API has a POST and GET endpoint.
+		<ul>
+			<li><strong>GET</strong> : /imdb-api-get</li>
+			<li><strong>POST</strong> : /imdb-api-post</li>
+		</ul>
+		<p>GET Request</p>
+		<div class="def">
+			cURL Example:
+			<div class="code">curl -X GET http://127.0.0.1:5000/imdb-api-get?title=game&title_type=feature</div>
+			AJAX Example:
+			<pre style="color: white;background:#000000;padding: 1.3vw;border-radius: 0.4vw;margin: 2vw auto;width: 93%;">$<span style="color:#d2cd86; ">.</span>ajax<span style="color:#d2cd86; ">(</span><span style="color:#b060b0; ">{</span>
+  url<span style="color:#b060b0; ">:</span><span style="color:#02d045; ">'</span><span style="color:#00c4c4; ">http://127.0.0.1:5000/imdb-api-get</span><span style="color:#02d045; ">'</span><span style="color:#d2cd86; ">,</span>
+  type<span style="color:#b060b0; ">:</span><span style="color:#02d045; ">'</span><span style="color:#00c4c4; ">get</span><span style="color:#02d045; ">'</span><span style="color:#d2cd86; ">,</span>
+  data<span style="color:#b060b0; ">:</span><span style="color:#02d045; ">'</span><span style="color:#00c4c4; ">title=game&amp;title_type=feature</span><span style="color:#02d045; ">'</span><span style="color:#d2cd86; ">,</span>
+  success<span style="color:#b060b0; ">:</span><span style="color:#e66170; font-weight:bold; ">function</span><span style="color:#d2cd86; ">(</span>myJson<span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">{</span>
+     console<span style="color:#d2cd86; ">.</span><span style="color:#e66170; font-weight:bold; ">log</span><span style="color:#d2cd86; ">(</span>myJson<span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span>
+  <span style="color:#b060b0; ">}</span>
+<span style="color:#b060b0; ">}</span><span style="color:#d2cd86; ">)</span><span style="color:#b060b0; ">;</span>
+</pre>
+</pre>
+		</div>
+	<p>POST Request</p>
+		<div class="def">
+			cURL Example:
+			<div class="code">curl -d '{"title":"Game","title_type":"feature"}' -H "Content-Type: application/json" -X POST http://127.0.0.1:5000/imdb-api-post</div>
+			AJAX Example:
+			<pre style="
+    color: white;
+    background: #000000;
+    padding: 1.3vw;
+    border-radius: 0.4vw;
+    margin: 2vw auto;
+    width: 93%;
+">$<span style='color:#d2cd86; '>.</span>ajax<span style='color:#d2cd86; '>(</span><span style='color:#b060b0; '>{</span>
+    url<span style='color:#b060b0; '>:</span><span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>http://127.0.0.1:5000/imdb-api-post</span><span style='color:#02d045; '>'</span><span style='color:#d2cd86; '>,</span>
+    type<span style='color:#b060b0; '>:</span><span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>post</span><span style='color:#02d045; '>'</span><span style='color:#d2cd86; '>,</span>
+    contentType<span style='color:#b060b0; '>:</span><span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>application/json</span><span style='color:#02d045; '>'</span><span style='color:#d2cd86; '>,</span>
+    data<span style='color:#b060b0; '>:</span>JSON<span style='color:#d2cd86; '>.</span><span style='color:#e66170; font-weight:bold; '>stringify</span><span style='color:#d2cd86; '>(</span><span style='color:#b060b0; '>{</span><span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>title</span><span style='color:#02d045; '>'</span><span style='color:#b060b0; '>:</span><span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>game</span><span style='color:#02d045; '>'</span><span style='color:#d2cd86; '>,</span><span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>title_type</span><span style='color:#02d045; '>'</span><span style='color:#b060b0; '>:</span><span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>feature</span><span style='color:#02d045; '>'</span><span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>,</span>
+    success<span style='color:#b060b0; '>:</span><span style='color:#e66170; font-weight:bold; '>function</span><span style='color:#d2cd86; '>(</span>myJson<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>{</span>
+        console<span style='color:#d2cd86; '>.</span><span style='color:#e66170; font-weight:bold; '>log</span><span style='color:#d2cd86; '>(</span>myJson<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+    <span style='color:#b060b0; '>}</span>
+ <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+</pre>
+		</div>	
+	</div>
+	<p>Response</p>
+		<div class="def">
+			The Response is a list of dictionaries where each dictionary contains details about one title. The list is ordered in the descending order of Popularity of the titles.<br><br>
+			<STRONG>Success Response :</STRONG>
+			<pre>  <strong>Code: 200</strong></pre>
+			<pre> <strong> Response :</strong></pre>
+			 <pre style="
+    color: white;
+    background: #000000;
+    padding: 1.3vw;
+    border-radius: 0.4vw;
+    margin: 2vw auto;
+    width: 93%;
+">[</span>
+     <span style='color:#b060b0; '>{</span>
+	directors<span style='color:#b060b0; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>John Francis Daley, Jonathan Goldstein</span><span style='color:#02d045; '>"</span>
+	genre<span style='color:#b060b0; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>Action, Comedy, Crime</span><span style='color:#02d045; '>"</span>
+	gross<span style='color:#b060b0; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>$69.00M</span><span style='color:#02d045; '>"</span>
+	idm_id<span style='color:#b060b0; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>tt2704998</span><span style='color:#02d045; '>"</span>
+	name<span style='color:#b060b0; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>Game Night (I) (2018)</span><span style='color:#02d045; '>"</span>
+	plot<span style='color:#b060b0; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>A group of friends who meet regularly for game nights find themselves entangled </span>
+<span style='color:#00c4c4; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;in a real-life mystery when the shady brother of one of them is </span>
+<span style='color:#00c4c4; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;seemingly kidnapped by dangerous gangsters....</span><span style='color:#02d045; '>"</span>
+	poster<span style='color:#b060b0; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>https://m.media-amazon.com/images/M/MV5BMjI3ODkzNDk5MF5BMl5BanBnXkFtZTgwNTEyN</span>
+<span style='color:#00c4c4; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;jY2NDM@._V1_UX300_CR0,0,,300_AL_.jpg</span><span style='color:#02d045; '>"</span>
+	rating<span style='color:#b060b0; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>7.0</span><span style='color:#02d045; '>"</span>
+	runtime<span style='color:#b060b0; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>100 min</span><span style='color:#02d045; '>"</span>
+	stars<span style='color:#b060b0; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>Jason Bateman, Rachel McAdams, Kyle Chandler, Sharon Horgan</span><span style='color:#02d045; '>"</span>
+	votes<span style='color:#b060b0; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>155,318</span><span style='color:#02d045; '>"</span>
+     <span style='color:#b060b0; '>}</span>
+<span style='color:#d2cd86; '>.</span><span style='color:#d2cd86; '>.</span><span style='color:#d2cd86; '>.</span>
+<span style='color:#d2cd86; '>.</span><span style='color:#d2cd86; '>.</span><span style='color:#d2cd86; '>.</span>
+<span style='color:#d2cd86; '>.</span><span style='color:#d2cd86; '>.</span><span style='color:#d2cd86; '>.</span><span style='color:white; '>]</span>
+</pre>
+	<STRONG>Error Response :</STRONG>
+			<pre>  <strong>Code: 400</strong></pre>
+			<pre> <strong> Response :</strong></pre>
+			<pre style="
+    color: white;
+    background: #000000;
+    padding: 1.3vw;
+    border-radius: 0.4vw;
+    margin: 2vw auto;
+    width: 93%;
+"><span style='color:white; '>{</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>error</span><span style='color:#02d045; '>"</span><span style='color:#b060b0; '>:</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>Title/Keyword/Plot is required</span><span style='color:#02d045; '>"</span><span style='color:white; '>}</span>
+</pre>
+	<STRONG>OR</STRONG>
+			<pre>  <strong>Code: 500</strong></pre>
+			<pre> <strong> Response :</strong></pre>
+			<pre style="
+    color: white;
+    background: #000000;
+    padding: 1.3vw;
+    border-radius: 0.4vw;
+    margin: 2vw auto;
+    width: 93%;
+"><span style='color:white; '>{</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>error</span><span style='color:#02d045; '>"</span><span style='color:#b060b0; '>:</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>SERVER ERROR</span><span style='color:#02d045; '>"</span><span style='color:white; '>}</span>
+</pre>
+		</div>
+	<p>API Response Parameters</p>
+	<p class='def'>The response is JSON format, it consists of a list of dictionaries where each dictionary has data on a single title. The attributes in the dictionary are :</p>
+	<div class="respara">
+		<div class="attr">
+			<div class="name">idm_id : </div>
+			<div class="description">IMDb ID of the title.</div>
+		</div>
+		<div class="attr">
+			<div class="name">name : </div>
+			<div class="description">Name of the title.</div>
+		</div>
+		<div class="attr">
+			<div class="name">plot : </div>
+			<div class="description">Short summary/plot of the story.</div>
+		</div>
+		<div class="attr">
+			<div class="name">poster : </div>
+			<div class="description">Poster image urls</div>
+		</div>
+		<div class="attr">
+			<div class="name">genre : </div>
+			<div class="description">Genre of the title.</div>
+		</div>
+		<div class="attr">
+			<div class="name">runtime : </div>
+			<div class="description">Duration of the movie/title.</div>
+		</div>
+		<div class="attr">
+			<div class="name">rating : </div>
+			<div class="description">IMDb Rating of the title.</div>
+		</div>
+		<div class="attr">
+			<div class="name">directors : </div>
+			<div class="description">Name of the Directors of the title.</div>
+		</div>
+		<div class="attr">
+			<div class="name">stars : </div>
+			<div class="description">Cast of the title.</div>
+		</div>
+		<div class="attr">
+			<div class="name">votes : </div>
+			<div class="description">Number of votes recieved by the title on IMDb.</div>
+		</div>
+		<div class="attr">
+			<div class="name">gross : </div>
+			<div class="description">Gross amount earned by the title.</div>
+		</div>
+	</div>
+	</div>
+</body>
+</html>
