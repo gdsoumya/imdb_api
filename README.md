@@ -1,4 +1,5 @@
 ![IMDb_API](https://raw.githubusercontent.com/gdsoumya/imdb_api/master/IMDb_API.png)
+<br><br>
 **IMDb_API** is a custom open-source IMDb search API service, it allows users to make api calls to query the IMDb database. This repo contains all the necessary files required to initialize your own IMDb_API server.
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -60,6 +61,7 @@ A complete guide to using the api endpoints can be found at http://127.0.0.1:500
 ### API Request Parameters
 **REQUIRED Parameters**
 Atleast one of the following parameters are needed to perform a succesful search.
+
 | Parameter | Description |
 | ------ | ------ |
 |title |Title/Query to Search|
@@ -67,14 +69,15 @@ Atleast one of the following parameters are needed to perform a succesful search
 |plot |**This is a tricky and experimental feature, avoid using it.** <br>Instead of searching for specific Title, you can give the plot of the title you want to search.|
 
 **OPTIONAL Parameters**
+
 | Parameter | Description |
 | ------ | ------ |
 |title_type |Types of title to search, possible values : <br><ul><li>feature</li><li>tv_movie</li><li>tv_series</li><li>tv_episode</li><li>tv_special</li><li>tv_miniseries</li><li>documentary</li><li>video_game</li><li>short</li><li>video</li><li>tv_short</li></ul><bt>eg. 'feature' or 'feature,tv_series,video' etc..|
 |release_date |Two comma separated dates(YYYY-MM-DD) indicating a time range to search for title released in that range of time.<br>eg. '1999-02-20,2018-11-29' or ' ,2000-01-31' or '1999-10-11, ' etc.|
 |user_rating |Two comma separated integers(0-10) indicating the range of IMDb rating from which you want to search for the titles.<br>eg. '1,9' or '5.6,9.9' etc.|
-|genres |Genre to search titles from, possible values:<br><ul><li>action</li><li>adventure</li><li>animation</li><li>biography</li><li>comedy</li><li>crime</li><li>documentary</li><li>drama</li><li>family</li><li>fantasy</li><li>film-noir</li><li>game-show</li><li>history</li><li>horror</li><li>music</li><li>musical</li><li>mystery</li><li>news</li><li>reality-tv</li><li>romance</li><li>sci-fi</li><li>sport</li><li>talk-show</li><li>thriller</li><li>war</li><li>western</li></ul><br>eg. 'action,adventure,animation' etc.|
-|colors |Color Info to search titles from,possible values:<br><ul><li>color</li><li>black_and_white</li><li>colorized</li><li>aces</li></ul><br>eg. 'color,colorized,aces' etc.|
-|adult |Option to whether include or exclude adult titles, possible values:<br><ul><li>exclude</li><li>include</li></ul><br>by default it is set to exclude adult content.|
+|genres |Genre to search titles from, possible values:<br><ul><li>action</li><li>adventure</li><li>animation</li><li>biography</li><li>comedy</li><li>crime</li><li>documentary</li><li>drama</li><li>family</li><li>fantasy</li><li>film-noir</li><li>game-show</li><li>history</li><li>horror</li><li>music</li><li>musical</li><li>mystery</li><li>news</li><li>reality-tv</li><li>romance</li><li>sci-fi</li><li>sport</li><li>talk-show</li><li>thriller</li><li>war</li><li>western</li></ul>eg. 'action,adventure,animation' etc.|
+|colors |Color Info to search titles from,possible values:<br><ul><li>color</li><li>black_and_white</li><li>colorized</li><li>aces</li></ul>eg. 'color,colorized,aces' etc.|
+|adult |Option to whether include or exclude adult titles, possible values:<br><ul><li>exclude</li><li>include</li></ul>by default it is set to exclude adult content.|
 |count |Maximum number of results to fetch.<br>eg. '50','100' etc.<br>Default max count is 50.|
 
 ### API CALL
@@ -127,7 +130,7 @@ The Response is a list of dictionaries where each dictionary contains details ab
 	"directors": "John Francis Daley, Jonathan Goldstein",
 	"genre": "Action, Comedy, Crime",
 	"gross": "$69.00M",
-	"idm_id": "tt2704998,"
+	"idm_id": "tt2704998",
 	"name": "Game Night (I) (2018)",
 	"plot": "A group of friends who meet regularly for game nights find themselves entangled ....",
 	"poster": "https://m.media-amazon.com/images/M/MV5BMjI3ODkzNDk5MF5BMl5BanBnX.jpg",
@@ -156,6 +159,7 @@ The Response is a list of dictionaries where each dictionary contains details ab
 ```
 ### API Response Parameters
 The parameters returned for each title :
+
 | Parameter | Description |
 | ------ | ------ |
 |idm_id |IMDb ID of the title.|
