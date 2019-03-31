@@ -126,7 +126,7 @@ The Response is a list of dictionaries where each dictionary contains details ab
 
 - Code: 200<br>
 Response :
-```json
+```
 [
      {
 	"directors": "John Francis Daley, Jonathan Goldstein",
@@ -172,6 +172,10 @@ The parameters returned for each title :
 |directors |Name of the Directors of the title.|
 |stars |Cast of the title.|
 |votes |Number of votes recieved by the title on IMDb.|
+
+## TESTING THE API
+
+To see a ready-made example of using the API visit http://127.0.0.1:5000/test-api . The test queries both the POST and GET endpoints with just the title parameter and fetches the results and displays it on the webpage. The whole process is done on the client side using AJAX call, it can also be achieved using a asynchronus fetch operation in javascript too.
 
 ## Errors and Debugging options
 The server by default does not start in debugger mode but to initialize debugger mode change the last line of the '[api-server.py](https://github.com/gdsoumya/imdb_api/blob/master/api-server.py)' file to :
