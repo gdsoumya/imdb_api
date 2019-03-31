@@ -165,13 +165,14 @@ The parameters returned for each title :
 |idm_id |IMDb ID of the title.|
 |name |Name of the title.|
 |plot |Short summary/plot of the story.|
-|poster |Poster image urls|
+|poster |Poster image urls.|
 |genre |Genre of the title.|
 |runtime |Duration of the movie/title.|
 |rating |IMDb Rating of the title.|
 |directors |Name of the Directors of the title.|
 |stars |Cast of the title.|
 |votes |Number of votes recieved by the title on IMDb.|
+|gross |Gross amount earned by the title.|
 
 ## TESTING THE API
 
