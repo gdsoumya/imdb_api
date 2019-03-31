@@ -29,7 +29,7 @@ The Project has a few dependencies which can be installed by running.
 ```sh
 $ pip install -r dependencies.txt 
 ```
-## Starting the Bot
+## Starting the API Server
 To start the Flask server run
 ```sh
 $ python api-server.py
@@ -65,7 +65,7 @@ Atleast one of the following parameters are needed to perform a succesful search
 | Parameter | Description |
 | ------ | ------ |
 |title |Title/Query to Search|
-|keywords |Instead of searching for specific Title, you can search for keywords that are related to the title you want to search <br>.eg. 'detective' or 'jail,escape'|
+|keywords |Instead of searching for specific Title, you can search for keywords that are related to the title you want to search. <br>eg. 'detective' or 'jail,escape'|
 |plot |**This is a tricky and experimental feature, avoid using it.** <br>Instead of searching for specific Title, you can give the plot of the title you want to search.|
 
 **OPTIONAL Parameters**
@@ -122,8 +122,8 @@ The Response is a list of dictionaries where each dictionary contains details ab
 
 **Success Response** :
 
-  Code: 200
-  Response :
+Code: 200<br>
+Response :
 ```json
 [
      {
@@ -145,15 +145,15 @@ The Response is a list of dictionaries where each dictionary contains details ab
 ```
 **Error Response** :
 
-  Code: 400
-  Response :
+Code: 400<br>
+Response :
 ```json
 {"error":"Title/Keyword/Plot is required"}
 ```
 **OR**
 
-  Code: 500
-  Response :
+Code: 500<br>
+Response :
 ```json
 {"error":"SERVER ERROR"}
 ```
