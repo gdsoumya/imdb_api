@@ -1,5 +1,7 @@
 ![IMDb_API](https://raw.githubusercontent.com/gdsoumya/imdb_api/master/IMDb_API.png)
 <br><br>
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)   <img src="https://img.shields.io/badge/made%20with-python-blue.svg" alt="made with python"> [![Codeship Status for gdsoumya/imdb_api](https://app.codeship.com/projects/cfa2a960-3671-0137-7f96-26950ace48cc/status?branch=master)](https://app.codeship.com/projects/332951) <a href='https://github.com/gdsoumya'><img src='https://img.shields.io/github/followers/gdsoumya.svg?label=Folow&style=social'></a>
+
 **IMDb_API** is a custom open-source IMDb search API service, it allows users to make api calls to query the IMDb database. This repo contains all the necessary files required to initialize your own IMDb_API server.
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
