@@ -1,6 +1,9 @@
 ![IMDb_API](https://raw.githubusercontent.com/gdsoumya/imdb_api/master/IMDb_API.png)
 <br><br>
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)   <img src="https://img.shields.io/badge/made%20with-python-blue.svg" alt="made with python"> [![Codeship Status for gdsoumya/imdb_api](https://app.codeship.com/projects/cfa2a960-3671-0137-7f96-26950ace48cc/status?branch=master)](https://app.codeship.com/projects/332951) <a href='https://github.com/gdsoumya'><img src='https://img.shields.io/github/followers/gdsoumya.svg?label=Folow&style=social'></a>
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)   <img src="https://img.shields.io/badge/made%20with-python-blue.svg" alt="made with python"> [![Codeship Status for gdsoumya/imdb_api](https://app.codeship.com/projects/cfa2a960-3671-0137-7f96-26950ace48cc/status?branch=master)](https://app.codeship.com/projects/332951) <a href='https://github.com/gdsoumya'><img src='https://img.shields.io/github/followers/gdsoumya.svg?label=Folow&style=social'></a> <a href="https://twitter.com/intent/tweet?text=Check+out+this+awesome+Github+Repo+for+an+unofficial+IMDb+API.&url=https%3A%2F%2Fgithub.com%2Fgdsoumya%2Fimdb_api&hashtags=imdb%2Cimdb-api%2Cgithub&original_referer=http%3A%2F%2Fgithub.com%2F&tw_p=tweetbutton" target="_blank">
+  <img src="http://jpillora.com/github-twitter-button/img/tweet.png"
+       alt="tweet button" title="Check out this awesome Github Repo for an unofficial IMDb API."></img>
+</a>
 
 **IMDb_API** is a custom open-source IMDb search API service, it allows users to make api calls to query the IMDb database. This repo contains all the necessary files required to initialize your own IMDb_API server.
 ## Getting Started
