@@ -48,7 +48,7 @@ def imdb_api_get():
 			return jsonify({"error":"Title/Keyword/Plot is required"}),400
 		# Generating Response
 		response = jsonify(SearchApi(title,title_type,release_date,user_rating,genres,colors,keywords,plot,adult,count))
-		if response	!= 'ERROR':
+		if response != 'ERROR':
 				return response
 		return	jsonify({"error":"SERVER ERROR"}),500
 
@@ -77,7 +77,7 @@ def imdb_api_post():
 			return jsonify({"error":"Title/Keyword/Plot is required"}),400
 		# Generating Response
 		response = jsonify(SearchApi(title,title_type,release_date,user_rating,genres,colors,keywords,plot,adult,count))
-		if response	!= 'ERROR':
+		if response != 'ERROR':
 				return response
 		return	jsonify({"error":"SERVER ERROR"}),500
 
