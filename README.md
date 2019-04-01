@@ -192,7 +192,7 @@ Most errors will be logged to the console and can be referenced later for debugg
 ## Packages Used
 - **[Requests](http://docs.python-requests.org/en/master/)** : For fetching data from IMDb.
 - **[BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)** : For parsing the fetched data.
-- **[Flask](http://flask.pocoo.org/)** : For hosting the web interface.
+- **[Flask](http://flask.pocoo.org/)** : For hosting the API server.
 - **[Flask-Cors](https://flask-cors.readthedocs.io/en/latest/)** : For enabling Cross Origin Resource Sharing.
 
 ## Author
